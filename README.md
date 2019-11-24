@@ -26,3 +26,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Adding Express
+
+`npm install --save express`
+
+## Adding nodemon
+
+`npm install --save-dev nodemon`
+
+Add a nodemon script to package.json, so you can start the dev server with for example `npm run start:server`.
+
