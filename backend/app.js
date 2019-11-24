@@ -1,7 +1,13 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
+// parse request bodies
+app.use(bodyParser.json()); // parses JSON bodies of requests
+app.use(bodyParser.urlencoded({extended: false}));  // for url encoded request bodies
+
+// set response headers
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -15,7 +21,17 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api/posts', (req, res, next) => {
+// POST requests
+app.post("/api/posts", (req, res, next) => {
+  const post = req.body;
+  console.log(post);
+  res.status(201).json({
+    message: 'Post added successfully.'
+  });
+});
+
+// GET requests
+app.get('/api/posts', (req, res, next) => {
   const posts = [
     {
       id: 'fasdajdhfjs',
